@@ -6,16 +6,6 @@ A sample template for bootstrapping [Dart Runtime for AWS Lambda](https://github
 
 Install the [serverless framework](https://www.serverless.com/framework/docs/getting-started/) CLI.
 
-Run the following command in your terminal.
-
-```bash
-$ npx serverless install \
-  --url https://github.com/katallaxie/serverless-aws-dart \
-  --name hello
-```
-
-This will download the source of a sample Dart application and unpack it as a new service named
-"hello" in a directory called "hello" 👋.
 
 ## 🛵 Deployment
 
