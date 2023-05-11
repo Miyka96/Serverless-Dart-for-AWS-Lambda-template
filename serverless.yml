@@ -1,0 +1,49 @@
+service: your-service-name
+provider:
+  name: aws
+  deploymentMethod: direct
+  runtime: provided.al2
+  region: your-aws-region
+  memorySize: 1024
+
+package:
+  individually: true
+  artifact: build/bootstrap.zip
+
+plugins:
+  - serverless-iam-roles-per-function
+  - serverless-prune-plugin
+
+custom:
+  prune:
+    automatic: true
+    number: 3
+
+functions:
+  status:
+    handler: main.hello
+    events:
+      - http:
+          path: /hello
+          method: GET
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - Content-Encoding
+  # EXAMPLEputUser:
+  #   handler: main.EXAMPLEputUser
+  #   events:
+  #     - http:
+  #         path: /user
+  #         method: PUT
+  #         cors:
+  #           origin: "*"
+  #           headers:
+  #             - Content-Type
+  #             - Content-Encoding
+  #   iamRoleStatements:
+  #     - Effect: "Allow"
+  #       Action:
+  #         - dynamodb:PutItem
+  #       Resource: "arn:aws:dynamodb:*:yourAWSAccountNumber:table/yourTableName"
