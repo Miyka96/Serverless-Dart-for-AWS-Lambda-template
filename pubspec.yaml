@@ -1,5 +1,5 @@
-name: compass_voicebot_backend
-version: 1.0.0+3
+name: serverless-dart-template
+version: 1.0
 publish_to: none
 
 environment:
