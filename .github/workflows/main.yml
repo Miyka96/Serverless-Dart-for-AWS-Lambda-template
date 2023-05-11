@@ -1,0 +1,37 @@
+name: Main
+on: push
+
+jobs:
+  deploy_API:
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Configure AWS credentials
+        id: creds
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-3
+      - name: Deploy
+        #STAGE: prod
+        run: |
+          sudo apt-get update
+          sudo apt-get -y install apt-transport-https
+          wget -qO- https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo gpg --dearmor -o /usr/share/keyrings/dart.gpg
+          echo 'deb [signed-by=/usr/share/keyrings/dart.gpg arch=amd64] https://storage.googleapis.com/download.dartlang.org/linux/debian stable main' | sudo tee /etc/apt/sources.list.d/dart_stable.list
+          sudo apt-get update
+          sudo apt-get -y install dart zip
+          mkdir build
+          npm install --save-dev aws-sdk@2.1259.0
+          npm install serverless
+          npx serverless plugin install --name serverless-iam-roles-per-function
+          npx serverless plugin install --name serverless-prune-plugin
+          dart pub get
+          dart compile exe lib/main.dart -o build/bootstrap
+          cd build
+          zip bootstrap.zip ./*
+          cd ..
+          npx serverless deploy
