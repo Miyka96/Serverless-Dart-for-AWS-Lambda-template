@@ -1,6 +1,6 @@
-# ⚡️ serverless Dart for AWS Lambda template
+# Serverless Dart for AWS Lambda template
 
-A sample template for bootstrapping [Dart Runtime for AWS Lambda](https://github.com/awslabs/aws-lambda-dart-runtime) applications with ⚡ serverless framework ⚡.
+A sample template for bootstrapping [Dart Runtime for AWS Lambda](https://github.com/awslabs/aws-lambda-dart-runtime) applications with serverless framework.
 
 ## 📦 Install
 
