@@ -1,4 +1,4 @@
-service: your-service-name
+service: serverless-dart-template
 provider:
   name: aws
   deploymentMethod: direct
