@@ -27,16 +27,7 @@ Add your changes to git and push them to GitHub.
 
 Finally, open https://github.com/{username}/hello/actions in your browser and grab a bucket of popcorn 🍿.
 
-## 👴 retiring
-
-Good code should be easily replaceable. Good code should also be easily disposable. Retiring applications should be as easy as creating and deploying them them. The dual of `serverless deploy` is `serverless remove`. Use this for retiring services and cleaning up resources.
-
-```bash
-$ npx serverless remove
-```
-
 ## ℹ️  additional information
 
 * See the [serverless-dart plugin's documentation](https://github.com/katallaxie/serverless-dart) for more information on plugin usage.
-
 * See the [Dart Runtime for AWS Lambda](https://github.com/awslabs/aws-lambda-dart-runtime) for more information on writing Dart Lambda functions
