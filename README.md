@@ -25,7 +25,7 @@ Store a `AWS_ACCESS_KEY_ID` `AWS_SECRET_ACCESS_KEY` used for aws deployment in y
 
 Add your changes to git and push them to GitHub.
 
-Finally, open https://github.com/{username}/hello/actions in your browser and grab a bucket of popcorn 🍿.
+Finally, open https://github.com/{username}/{RepositoryName}/actions in your browser and grab a bucket of popcorn 🍿.
 
 ## ℹ️  additional information
 
