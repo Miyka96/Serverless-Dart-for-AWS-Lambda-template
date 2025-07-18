@@ -1,0 +1,5 @@
+.vscode
+.serverless
+.DS_Store
+pubspec.lock
+.dart_tool
